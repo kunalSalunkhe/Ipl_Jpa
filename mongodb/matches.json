@@ -1,0 +1,53 @@
+[{
+  "_id": {
+    "$oid": "612c97cc716b9d2377c6163b"
+  },
+  "matchNo": 1,
+  "venue": "Mumbai",
+  "date": {
+    "$date": "2021-04-14T18:30:00Z"
+  },
+  "awards": [
+    {
+      "$oid": "612c99c2716b9d2377c6163c"
+    },
+    {
+      "$oid": "612c99fd5b42373c9d09d7ab"
+    }
+  ]
+},{
+  "_id": {
+    "$oid": "612c98805b42373c9d09d7a8"
+  },
+  "matchNo": 2,
+  "venue": "Banglore",
+  "date": {
+    "$date": "2021-04-15T18:30:00Z"
+  },
+  "awards": [
+    {
+      "$oid": "612c99fd5b42373c9d09d7ab"
+    },
+    {
+      "$oid": "612c99c2716b9d2377c6163c"
+    }
+  ]
+},{
+  "_id": {
+    "$oid": "612c98db5b42373c9d09d7a9"
+  },
+  "matchNo": 3,
+  "venue": "Chennai",
+  "date": {
+    "$date": "2021-04-16T18:30:00Z"
+  }
+},{
+  "_id": {
+    "$oid": "612c98f05b42373c9d09d7aa"
+  },
+  "matchNo": 4,
+  "venue": "Kolkata",
+  "date": {
+    "$date": "2021-04-17T18:30:00Z"
+  }
+}]

@@ -1,0 +1,123 @@
+[{
+  "_id": {
+    "$oid": "612c91da716b9d2377c61637"
+  },
+  "seasonNo": 1,
+  "seasonName": "DLF IPL",
+  "startDate": {
+    "$date": "2019-04-14T18:30:00Z"
+  },
+  "endDate": {
+    "$date": "2019-05-29T18:30:00Z"
+  },
+  "teams": [
+    {
+      "_teamId": {
+        "$oid": "612c95e2716b9d2377c6163a"
+      },
+      "rank": "Champion",
+      "highestRunsScorer": {
+        "$oid": "612c9383716b9d2377c61639"
+      },
+      "highestWicketTaker": {
+        "$oid": "612c94c15b42373c9d09d7a1"
+      },
+      "captain": {
+        "$oid": "612c9383716b9d2377c61639"
+      }
+    },
+    {
+      "_teamId": {
+        "$oid": "612c972b5b42373c9d09d7a5"
+      },
+      "highestRunsScorer": {
+        "$oid": "612c942c5b42373c9d09d79f"
+      },
+      "highestWicketTaker": {
+        "$oid": "612c94e15b42373c9d09d7a2"
+      },
+      "rank": "Second",
+      "captain": {
+        "$oid": "612c942c5b42373c9d09d79f"
+      }
+    },
+    {
+      "_teamId": {
+        "$oid": "612c97495b42373c9d09d7a6"
+      },
+      "highestRunsScorer": {
+        "$oid": "612c94115b42373c9d09d79e"
+      },
+      "rank": "Third",
+      "highestWicket": {
+        "$oid": "612c94fb5b42373c9d09d7a3"
+      }
+    },
+    {
+      "_teamId": {
+        "$oid": "612c97bd5b42373c9d09d7a7"
+      },
+      "highestRunsScorer": {
+        "$oid": "612c947f5b42373c9d09d7a0"
+      },
+      "highestWicketTaker": {
+        "$oid": "612c951d5b42373c9d09d7a4"
+      },
+      "rank": "Fourth",
+      "captain": {
+        "$oid": "612c947f5b42373c9d09d7a0"
+      }
+    }
+  ],
+  "players": [
+    {
+      "_playerId": {
+        "$oid": "612c9383716b9d2377c61639"
+      },
+      "totalRuns": 400,
+      "totalCatches": 3,
+      "strikeRate": 144
+    },
+    {
+      "_playerId": {
+        "$oid": "612c94115b42373c9d09d79e"
+      },
+      "totalRuns": 455,
+      "totalCatches": 4,
+      "strikeRate": 150
+    },
+    {
+      "_playerId": {
+        "$oid": "612c94e15b42373c9d09d7a2"
+      },
+      "totalWickets": "16",
+      "totalCatches": "4"
+    }
+  ],
+  "matches": [
+    {
+      "$oid": "612c97cc716b9d2377c6163b"
+    },
+    {
+      "$oid": "612c98805b42373c9d09d7a8"
+    },
+    {
+      "$oid": "612c98db5b42373c9d09d7a9"
+    },
+    {
+      "$oid": "612c97bd5b42373c9d09d7a7"
+    }
+  ]
+},{
+  "_id": {
+    "$oid": "612c92de5b42373c9d09d79d"
+  },
+  "seasonNo": 2,
+  "seasonName": "VIVO IPL",
+  "startDate": {
+    "$date": "2020-04-14T18:30:00Z"
+  },
+  "endDate": {
+    "$date": "2020-05-29T18:30:00Z"
+  }
+}]

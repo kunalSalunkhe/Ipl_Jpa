@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans
+    	http://www.springframework.org/schema/beans/spring-beans.xsd
+    	http://www.springframework.org/schema/context
+    	http://www.springframework.org/schema/context/spring-context.xsd
+    	http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+	<!-- Step 3: Add support for component scanning -->
+	<context:component-scan
+		base-package="com.entlogics.iplapp.controllers" />
+	<context:component-scan
+		base-package="com.entlogics.iplapp.models" />
+	<context:component-scan
+		base-package="com.entlogics.iplapp.services" />
+	<context:component-scan
+		base-package="com.entlogics.iplapp.repository" />
+
+	<!-- Step 4: Add support for conversion, formatting and validation support -->
+	<mvc:annotation-driven />
+
+	<!-- Step 5: Define Spring MVC view resolver -->
+	<bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/view/" />
+		<property name="suffix" value=".jsp" />
+	</bean>
+
+ 
+	<bean id="dataSource"
+		class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+		<property name="driverClassName"
+			value="com.mysql.cj.jdbc.Driver" />
+		<property name="url"
+			value="jdbc:mysql://localhost:3306/IPL?useSSL=false&amp;serverTimezone=UTC" />
+		<property name="username" value="ipl" />
+		<property name="password" value="Ipl@1234" />
+
+	</bean>
+
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+
+		<property name="packagesToScan">
+			<list>
+				<value>com.entlogics.iplapp.models</value>
+			</list>
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+				<prop key="hibernate.show_sql">true</prop>
+				<prop key="current_session_context_class">thread</prop>
+			</props>
+		</property>
+	</bean>
+
+</beans>
+
+
+
+
+

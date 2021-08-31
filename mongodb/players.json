@@ -1,0 +1,89 @@
+[{
+  "_id": {
+    "$oid": "612c9383716b9d2377c61639"
+  },
+  "playerNo": 1,
+  "playerName": "Dhoni",
+  "age": 32,
+  "type": "Batsman",
+  "matches": [
+    {
+      "_matchId": {
+        "$oid": "612cbb62716b9d2377c61667"
+      },
+      "runsScored": 45,
+      "strikeRate": 144
+    },
+    {
+      "_matchId": {
+        "$oid": "612cbb6e716b9d2377c61668"
+      },
+      "runsScored": 56,
+      "strikeRate": 147.6
+    }
+  ],
+  "awards": [
+    {
+      "$oid": "612c99c2716b9d2377c6163c"
+    },
+    {
+      "$oid": "612c99fd5b42373c9d09d7ab"
+    }
+  ]
+},{
+  "_id": {
+    "$oid": "612c94115b42373c9d09d79e"
+  },
+  "playerNo": 2,
+  "playerName": "Kohli",
+  "age": 26,
+  "type": "Batsman"
+},{
+  "_id": {
+    "$oid": "612c942c5b42373c9d09d79f"
+  },
+  "playerNo": 3,
+  "playerName": "Rohit",
+  "age": 26,
+  "type": "Batsman"
+},{
+  "_id": {
+    "$oid": "612c947f5b42373c9d09d7a0"
+  },
+  "playerNo": 4,
+  "playerName": "Kartik",
+  "age": 28,
+  "type": "Batsman"
+},{
+  "_id": {
+    "$oid": "612c94c15b42373c9d09d7a1"
+  },
+  "playerNo": 5,
+  "playerName": "Ashwin",
+  "age": 25,
+  "type": "Bowler"
+},{
+  "_id": {
+    "$oid": "612c94e15b42373c9d09d7a2"
+  },
+  "playerNo": 6,
+  "playerName": "Bumrah",
+  "age": 25,
+  "type": "Bowler"
+},{
+  "_id": {
+    "$oid": "612c94fb5b42373c9d09d7a3"
+  },
+  "playerNo": 7,
+  "playerName": "Siraj",
+  "age": 24,
+  "type": "Bowler"
+},{
+  "_id": {
+    "$oid": "612c951d5b42373c9d09d7a4"
+  },
+  "playerNo": 8,
+  "playerName": "Kuldeep",
+  "age": 25,
+  "type": "Bowler"
+}]

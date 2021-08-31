@@ -1,0 +1,105 @@
+[{
+  "_id": {
+    "$oid": "612c95e2716b9d2377c6163a"
+  },
+  "teamNo": 1,
+  "teamName": "CSK",
+  "teamOwner": "India Cements Limited",
+  "players": [
+    {
+      "$oid": "612c9383716b9d2377c61639"
+    },
+    {
+      "$oid": "612c94c15b42373c9d09d7a1"
+    }
+  ],
+  "matches": [
+    {
+      "_matchId": {
+        "$oid": "612c97cc716b9d2377c6163b"
+      },
+      "opponent": {
+        "$oid": "612c972b5b42373c9d09d7a5"
+      },
+      "status": "Result",
+      "teamScore": "200",
+      "OpponentScore": "198",
+      "winner": {
+        "$oid": "612c95e2716b9d2377c6163a"
+      }
+    },
+    {
+      "_matchId": {
+        "$oid": "612c98805b42373c9d09d7a8"
+      },
+      "opponent": {
+        "$oid": "612c97495b42373c9d09d7a6"
+      },
+      "status": "Result",
+      "teamScore": "178",
+      "opponentScore": "180",
+      "winner": {
+        "$oid": "612c97495b42373c9d09d7a6"
+      }
+    },
+    {
+      "_matchId": {
+        "$oid": "612c98db5b42373c9d09d7a9"
+      },
+      "opponent": {
+        "$oid": "612c97bd5b42373c9d09d7a7"
+      },
+      "status": "Result",
+      "teamScore": "180",
+      "opponentScore": "181",
+      "winner": {
+        "$oid": "612c97bd5b42373c9d09d7a7"
+      }
+    }
+  ]
+},{
+  "_id": {
+    "$oid": "612c972b5b42373c9d09d7a5"
+  },
+  "teamNo": 2,
+  "teamName": "MI",
+  "teamOwner": "Reliance Industries",
+  "players": [
+    {
+      "$oid": "612c942c5b42373c9d09d79f"
+    },
+    {
+      "$oid": "612c94e15b42373c9d09d7a2"
+    }
+  ]
+},{
+  "_id": {
+    "$oid": "612c97495b42373c9d09d7a6"
+  },
+  "teamNo": 3,
+  "teamName": "RCB",
+  "teamOwner": "United Spirits",
+  "players": [
+    {
+      "$oid": "612c94115b42373c9d09d79e"
+    },
+    {
+      "$oid": "612c94fb5b42373c9d09d7a3"
+    }
+  ]
+},{
+  "_id": {
+    "$oid": "612c97bd5b42373c9d09d7a7"
+  },
+  "teamNo": 4,
+  "teamName": "KKR",
+  "teamOwner": "Shahrukh Khan",
+  "players": [
+    {
+      "$oid": "612c947f5b42373c9d09d7a0"
+    },
+    {
+      "$oid": "612c951d5b42373c9d09d7a4"
+    }
+  ]
+}]
