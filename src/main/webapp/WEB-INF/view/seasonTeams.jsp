@@ -15,10 +15,9 @@
 		<th>Owner Name</th>
 		<c:forEach var="seasonTeam" items="${seasonTeamList}">
 			<tr>
-				<td><c:out value="${seasonTeam.teamId}" /></td>
-				<td><c:out value="${seasonTeam.teamName}" /></td>
-				<td><c:out value="${seasonTeam.ownerName}" /></td>
-			</tr>
+				<td><c:out value="${seasonTeam.team.teamNo}" /></td>
+				<td><c:out value="${seasonTeam.team.teamName}" /></td>
+				<td><c:out value="${seasonTeam.team.ownerName}" /></td>
 		</c:forEach>
 		<br>
 		<form action="teams/addTeam">

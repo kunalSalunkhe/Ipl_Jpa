@@ -43,9 +43,9 @@ public class TeamSeason implements Serializable {
 	private Player highestWicketTaker;
 
 	public TeamSeason() {
-		
+
 	}
-	
+
 	public TeamSeason(Team team, Season season) {
 		super();
 		this.team = team;
@@ -114,4 +114,5 @@ public class TeamSeason implements Serializable {
 		return "TeamSeason [team=" + team + ", captain=" + captain + ", rank=" + rank + ", highestRunsScorer="
 				+ highestRunsScorer + ", highestWicketTaker=" + highestWicketTaker + "]";
 	}
+
 }

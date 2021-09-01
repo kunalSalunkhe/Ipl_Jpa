@@ -22,8 +22,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.entlogics.iplapp.models.Award;
 import com.entlogics.iplapp.models.Match;
 import com.entlogics.iplapp.models.Player;
+import com.entlogics.iplapp.models.PlayerSeason;
 import com.entlogics.iplapp.models.Season;
 import com.entlogics.iplapp.models.Team;
+import com.entlogics.iplapp.models.TeamSeason;
 import com.entlogics.iplapp.services.ISeasonService;
 
 @Controller
@@ -79,16 +81,9 @@ public class SeasonController {
 		System.out.println("Inside SeasonController getAllTeamsOfSeason method");
 
 		// Getting List of teams of the given season
-		List<Team> teams = iSeasonService.getAllTeamsOfSeason(seasonId);
+		List<TeamSeason> teams = iSeasonService.getAllTeamsOfSeason(seasonId);
 
-		ListIterator litr = teams.listIterator();
-
-		while (litr.hasNext()) {
-
-			Team team = (Team) litr.next();
-
-			System.out.println("Team Object is : " + team);
-		}
+		System.out.println("Season Teams : " + teams.size() + "/n" + teams);
 
 		// adding season model in view
 		model.addAttribute("seasonTeamList", teams);
@@ -102,16 +97,10 @@ public class SeasonController {
 		System.out.println("Inside SeasonController getAllPlayersOfSeason method");
 
 		// Getting the players of the given season
-		List<Player> players = iSeasonService.getAllPlayersOfSeason(seasonId);
+		List<PlayerSeason> players = iSeasonService.getAllPlayersOfSeason(seasonId);
 
-		ListIterator litr = players.listIterator();
-
-		while (litr.hasNext()) {
-
-			Player player = (Player) litr.next();
-
-			System.out.println("Player Object is : " + player);
-		}
+		System.out.println("Season Players : " + players.size() + "/n" + players);
+		
 		// adding season model in view
 		model.addAttribute("seasonPlayerList", players);
 

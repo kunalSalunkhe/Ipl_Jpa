@@ -9,8 +9,10 @@ import org.springframework.stereotype.Service;
 import com.entlogics.iplapp.models.Award;
 import com.entlogics.iplapp.models.Match;
 import com.entlogics.iplapp.models.Player;
+import com.entlogics.iplapp.models.PlayerSeason;
 import com.entlogics.iplapp.models.Season;
 import com.entlogics.iplapp.models.Team;
+import com.entlogics.iplapp.models.TeamSeason;
 import com.entlogics.iplapp.repository.ISeasonRepository;
 
 @Service
@@ -39,14 +41,14 @@ public class SeasonService implements ISeasonService {
 	}
 
 	@Override
-	public List<Team> getAllTeamsOfSeason(int seasonId) {
+	public List<TeamSeason> getAllTeamsOfSeason(int seasonId) {
 		System.out.println("Inside SeasonService getAllTeamsOfSeason() method");
 
 		return seasonRepo.findAllTeamsOfSeason(seasonId);
 	}
 
 	@Override
-	public List<Player> getAllPlayersOfSeason(int seasonId) {
+	public List<PlayerSeason> getAllPlayersOfSeason(int seasonId) {
 
 		System.out.println("Inside SeasonService getAllPlayerOfSeason() method");
 

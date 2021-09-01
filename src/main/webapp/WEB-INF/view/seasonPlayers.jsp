@@ -15,9 +15,9 @@
 		<th>Type</th>
 		<c:forEach var="seasonPlayer" items="${seasonPlayerList}">
 			<tr>
-				<td><c:out value="${seasonPlayer.playerId}" /></td>
-				<td><c:out value="${seasonPlayer.playerName}" /></td>
-				<td><c:out value="${seasonPlayer.type}" /></td>
+				<td><c:out value="${seasonPlayer.player.playerId}" /></td>
+				<td><c:out value="${seasonPlayer.player.playerName}" /></td>
+				<td><c:out value="${seasonPlayer.player.type}" /></td>
 
 			</tr>
 			</tr>

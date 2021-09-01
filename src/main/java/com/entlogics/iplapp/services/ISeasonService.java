@@ -5,8 +5,10 @@ import java.util.List;
 import com.entlogics.iplapp.models.Award;
 import com.entlogics.iplapp.models.Match;
 import com.entlogics.iplapp.models.Player;
+import com.entlogics.iplapp.models.PlayerSeason;
 import com.entlogics.iplapp.models.Season;
 import com.entlogics.iplapp.models.Team;
+import com.entlogics.iplapp.models.TeamSeason;
 
 public interface ISeasonService {
 
@@ -16,9 +18,9 @@ public interface ISeasonService {
 
 	public Season getSeason(int seasonId);
 
-	public List<Team> getAllTeamsOfSeason(int seasonId);
+	public List<TeamSeason> getAllTeamsOfSeason(int seasonId);
 
-	public List<Player> getAllPlayersOfSeason(int seasonId);
+	public List<PlayerSeason> getAllPlayersOfSeason(int seasonId);
 
 	public List<Match> getAllMatchesOfSeason(int seasonId);
 

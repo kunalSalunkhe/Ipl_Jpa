@@ -1,6 +1,12 @@
 package com.entlogics.iplapp.repository;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.ListIterator;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
@@ -8,8 +14,10 @@ import org.springframework.stereotype.Repository;
 import com.entlogics.iplapp.models.Award;
 import com.entlogics.iplapp.models.Match;
 import com.entlogics.iplapp.models.Player;
+import com.entlogics.iplapp.models.PlayerSeason;
 import com.entlogics.iplapp.models.Season;
 import com.entlogics.iplapp.models.Team;
+import com.entlogics.iplapp.models.TeamSeason;
 
 /*
  * this class is fetching the data from database according to methods specified
@@ -17,6 +25,8 @@ import com.entlogics.iplapp.models.Team;
 @Repository
 @Component
 public class SeasonRepository implements ISeasonRepository {
+
+	EntityManagerFactory factory = Persistence.createEntityManagerFactory("JPADemo");
 
 	public SeasonRepository() {
 		super();
@@ -30,7 +40,15 @@ public class SeasonRepository implements ISeasonRepository {
 
 		System.out.println("Inside SeasonRepository findAllSeasons()");
 
-		return null;
+		EntityManager entityManager = factory.createEntityManager();
+
+		entityManager.getTransaction().begin();
+
+		List<Season> seasons = entityManager.createNativeQuery("select * from dt_season", Season.class).getResultList();
+
+		entityManager.close();
+
+		return seasons;
 	}
 
 	/*
@@ -40,7 +58,15 @@ public class SeasonRepository implements ISeasonRepository {
 	public Season findSeason(int seasonId) {
 		System.out.println("Inside SeasonRepository findSeason()");
 
-		return null;
+		EntityManager entityManager = factory.createEntityManager();
+
+		entityManager.getTransaction().begin();
+
+		Season season = entityManager.find(Season.class, seasonId);
+
+		entityManager.close();
+
+		return season;
 	}
 
 	/*
@@ -48,20 +74,40 @@ public class SeasonRepository implements ISeasonRepository {
 	 */
 
 	@Override
-	public List<Team> findAllTeamsOfSeason(int seasonId) {
+	public List<TeamSeason> findAllTeamsOfSeason(int seasonId) {
 		System.out.println("Inside SeasonRepository findAllTeamsOfSeason()");
 
-		return null;
+		EntityManager entityManager = factory.createEntityManager();
+
+		entityManager.getTransaction().begin();
+
+		List<TeamSeason> teams = entityManager
+				.createNativeQuery("select * from lt_team_Season where seasonID = :seasonID", TeamSeason.class)
+				.setParameter("seasonID", seasonId).getResultList();
+
+		entityManager.close();
+
+		return teams;
 	}
 
 	/*
 	 * find all players of Season by Id from database
 	 */
 	@Override
-	public List<Player> findAllPlayersOfSeason(int seasonId) {
+	public List<PlayerSeason> findAllPlayersOfSeason(int seasonId) {
 		System.out.println("Inside SeasonRepository findAllPlayersOfSeason()");
 
-		return null;
+		EntityManager entityManager = factory.createEntityManager();
+
+		entityManager.getTransaction().begin();
+
+		List<PlayerSeason> players = entityManager
+				.createNativeQuery("select * from lt_player_season where seasonID = :seasonID", PlayerSeason.class)
+				.setParameter("seasonID", seasonId).getResultList();
+
+		entityManager.close();
+
+		return players;
 	}
 
 	/*
@@ -71,7 +117,15 @@ public class SeasonRepository implements ISeasonRepository {
 	public List<Match> findAllMatchesOfSeason(int seasonId) {
 		System.out.println("Inside SeasonRepository findAllMatchesOfSeason()");
 
-		return null;
+		EntityManager entityManager = factory.createEntityManager();
+
+		entityManager.getTransaction().begin();
+
+		List<Match> matches = entityManager
+				.createNativeQuery("select * from dt_match where seasonID = :seasonID", Match.class)
+				.setParameter("seasonID", seasonId).getResultList();
+
+		return matches;
 	}
 
 	/*
@@ -83,7 +137,43 @@ public class SeasonRepository implements ISeasonRepository {
 	public List<Award> findAllAwardsOfSeason(int seasonId) {
 		System.out.println("Inside SeasonRepository findAllAwardsSeason()");
 
-		return null;
+		EntityManager entityManager = factory.createEntityManager();
+
+		entityManager.getTransaction().begin();
+
+		// Creating list of Matches
+		// getting list of matches from database by seasonId
+		List<Match> matches = entityManager
+				.createNativeQuery("select * from dt_match where seasonID = :seasonID", Match.class)
+				.setParameter("seasonID", seasonId).getResultList();
+
+		// Creating award list
+		List<Award> totalAwards = new ArrayList<Award>();
+
+		// Iterating over matches to get awards of each match
+		ListIterator litr = matches.listIterator();
+
+		while (litr.hasNext()) {
+
+			Match match = (Match) litr.next();
+
+			List<Award> awardsOfMatch = match.getAwards();
+
+			// iterate over awardOfMatch and add award one by one in totalAwards
+
+			ListIterator alitr = awardsOfMatch.listIterator();
+
+			while (alitr.hasNext()) {
+
+				Award award = (Award) alitr.next();
+
+				totalAwards.add(award);
+
+			}
+
+		}
+
+		return totalAwards;
 	}
 
 	/*
@@ -93,6 +183,15 @@ public class SeasonRepository implements ISeasonRepository {
 	public void createSeason(Season season) {
 		System.out.println("Inside SeasonRepository createSeason()");
 
+		EntityManager entityManager = factory.createEntityManager();
+
+		entityManager.getTransaction().begin();
+
+		entityManager.persist(season);
+
+		entityManager.getTransaction().commit();
+
+		entityManager.close();
 	}
 
 	/*
@@ -102,12 +201,32 @@ public class SeasonRepository implements ISeasonRepository {
 	public void editSeason(Season season) {
 		System.out.println("Inside SeasonRepository editSeason()");
 
+		EntityManager entityManager = factory.createEntityManager();
+
+		entityManager.getTransaction().begin();
+
+		entityManager.merge(season);
+
+		entityManager.getTransaction().commit();
+
+		entityManager.close();
 	}
 
 	@Override
 	public void deleteSeason(int seasonId) {
 		System.out.println("Inside SeasonRepository deleteSeason()");
 
+		EntityManager entityManager = factory.createEntityManager();
+
+		entityManager.getTransaction().begin();
+
+		Season season = entityManager.find(Season.class, seasonId);
+
+		entityManager.remove(season);
+
+		entityManager.getTransaction().commit();
+
+		entityManager.close();
 	}
 
 }

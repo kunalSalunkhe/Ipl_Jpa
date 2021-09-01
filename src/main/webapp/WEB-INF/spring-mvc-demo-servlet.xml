@@ -37,7 +37,7 @@
 		<property name="driverClassName"
 			value="com.mysql.cj.jdbc.Driver" />
 		<property name="url"
-			value="jdbc:mysql://localhost:3306/IPL?useSSL=false&amp;serverTimezone=UTC" />
+			value="jdbc:mysql://localhost:3306/IPL?useSSL=false&amp;allowPublicKeyRetrieval=true&amp;serverTimezone=UTC" />
 		<property name="username" value="ipl" />
 		<property name="password" value="Ipl@1234" />
 
@@ -55,7 +55,7 @@
 		<property name="hibernateProperties">
 			<props>
 				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
-				<prop key="hibernate.show_sql">true</prop>
+				<prop key="connection.pool_size">100</prop>
 				<prop key="current_session_context_class">thread</prop>
 			</props>
 		</property>
