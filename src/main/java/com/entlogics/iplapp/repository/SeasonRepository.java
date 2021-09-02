@@ -26,6 +26,7 @@ import com.entlogics.iplapp.models.TeamSeason;
 @Component
 public class SeasonRepository implements ISeasonRepository {
 
+	// create entityManagerFactory to connect with database
 	EntityManagerFactory factory = Persistence.createEntityManagerFactory("JPADemo");
 
 	public SeasonRepository() {
@@ -40,10 +41,12 @@ public class SeasonRepository implements ISeasonRepository {
 
 		System.out.println("Inside SeasonRepository findAllSeasons()");
 
+		// get entityManager from factory
 		EntityManager entityManager = factory.createEntityManager();
 
 		entityManager.getTransaction().begin();
 
+		// get list of seasons
 		List<Season> seasons = entityManager.createNativeQuery("select * from dt_season", Season.class).getResultList();
 
 		entityManager.close();
@@ -81,6 +84,8 @@ public class SeasonRepository implements ISeasonRepository {
 
 		entityManager.getTransaction().begin();
 
+		// Creating list of TeamSeason
+		// getting list of TeamSeason from database by seasonId
 		List<TeamSeason> teams = entityManager
 				.createNativeQuery("select * from lt_team_Season where seasonID = :seasonID", TeamSeason.class)
 				.setParameter("seasonID", seasonId).getResultList();
@@ -101,6 +106,8 @@ public class SeasonRepository implements ISeasonRepository {
 
 		entityManager.getTransaction().begin();
 
+		// Creating list of PlayerSeason
+		// getting list of PlayerSeason from database by seasonId
 		List<PlayerSeason> players = entityManager
 				.createNativeQuery("select * from lt_player_season where seasonID = :seasonID", PlayerSeason.class)
 				.setParameter("seasonID", seasonId).getResultList();
@@ -121,6 +128,8 @@ public class SeasonRepository implements ISeasonRepository {
 
 		entityManager.getTransaction().begin();
 
+		// Creating list of Match
+		// getting list of Match from database by seasonId
 		List<Match> matches = entityManager
 				.createNativeQuery("select * from dt_match where seasonID = :seasonID", Match.class)
 				.setParameter("seasonID", seasonId).getResultList();
@@ -129,7 +138,7 @@ public class SeasonRepository implements ISeasonRepository {
 	}
 
 	/*
-	 * find all matches of Season by Id from database iterate over a match to get it
+	 * find all awards of Season by Id from database iterate over a match to get it
 	 * award hence return this award list
 	 */
 

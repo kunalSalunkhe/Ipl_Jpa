@@ -31,7 +31,7 @@
 		<property name="suffix" value=".jsp" />
 	</bean>
 
- 
+ <!--
 	<bean id="dataSource"
 		class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
 		<property name="driverClassName"
@@ -60,7 +60,7 @@
 			</props>
 		</property>
 	</bean>
-
+-->
 </beans>
 
 
